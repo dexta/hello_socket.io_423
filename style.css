@@ -1,0 +1,136 @@
+html, body{
+	padding: 0;
+	margin: 0;
+	font-size:16px;
+}
+
+body {
+	background-color: #232D66;
+	font-family: sans-serif;
+}
+
+h1{
+	width:100%;
+	background-color:#141C47;
+	color: #878eb1;
+	padding:10px;
+	font-size: 1em;
+}
+
+h2{
+	font-size: 1em;
+	color:#EBEBEB;
+}
+
+#main {
+	width:800px;
+	margin: 50px auto;
+	text-align: center;
+}
+
+input{
+	padding:10px;
+	margin: 10px 0;
+	font-size:1em;
+	text-align:center;
+	display:block;
+	margin-left: auto;
+  	margin-right: auto;
+  	width:100px;
+}
+
+#username{
+	width:300px;
+}
+
+
+#chatwindow{
+	margin: auto;
+	width: 800px;
+}
+
+#names{
+	float: left;
+	margin-right: 20px;
+	width: 200px;
+	background-color: #fff;
+	padding: 20px;
+	text-align: left;
+	font-size: 0.8em;
+}
+
+#names p{
+	font-weight: bold;
+}
+
+#message{
+	width:100%;
+	text-align:left;
+}
+
+#messages{
+	background-color: #fff;
+	padding: 20px;
+	text-align: left;
+	font-size: 0.8em;
+	margin-left: 260px;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+ul li{
+	margin: 0;
+	padding: 0;
+	margin-bottom: 6px;
+}
+
+li.welcome{
+	color: #0e8f2e;
+}
+
+li.left{
+	color: #c8c8c8;
+	font-style: italic;
+}
+
+li.joined{
+	color: #949494;
+	font-style: italic;
+}
+
+span.time{
+	display: inline-block;
+	margin-right: 10px;
+	color: #aeaeae;
+}
+
+span.user{
+	display: inline-block;
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+
+.color0{
+	color: #6069ad;
+}
+
+.color1{
+	color: #1B2042;
+}
+
+.color2{
+	color: #4956B2;
+}
+
+.color3{
+	color: #7a7fa5;
+}
+
+.color4{
+	color: #343D7F;
+}
