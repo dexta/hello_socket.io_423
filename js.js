@@ -1,5 +1,4 @@
  $(document).ready(function() {
- 
  	$('#chatwindow').hide();
  
  	//Focus field to enter username

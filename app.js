@@ -1,5 +1,7 @@
 //setup server
-var srvport = 9090
+
+var srvport = process.env.PORT;
+
 var express = require('express');
 var app = express.createServer();
 var io = require('socket.io').listen(app);
@@ -13,8 +15,14 @@ app.configure(function(){
     app.set('view options', { pretty: true });
 });
 
+<<<<<<< HEAD
 app.use(express.static(__dirname + '/static'));	
 console.log('Try Static '+ __dirname);
+=======
+app.use(express.static(__dirname + '/static'));
+
+console.log('Try Static'+ __dirname);
+>>>>>>> 168f2c25d986afa8feaeccb22ae5b51747bf2213
 
 app.get('/chat/:pa', function (req, res) {
 	res.render('index.jade', {port: srvport });
@@ -65,8 +73,6 @@ io.sockets.on('connection', function (socket) {
 	});	
 	
 });
-
-
 
 function getTime() {
     var dTime = new Date();

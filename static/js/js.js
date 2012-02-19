@@ -37,11 +37,9 @@
  	});
  	 
  }); //document.ready
- 
-
 
 //Connect to the server
-var socket = io.connect('http://localhost:'+srvport); 
+var socket = io.connect('http://hello_socket_io_423.dexta.c9.io'); 
  
  //Listen to the server: Login
 socket.on('login', function (data) {
