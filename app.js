@@ -1,6 +1,6 @@
 //setup server
-
-var srvport = process.env.PORT;
+var srvport = 9090;//process.env.PORT;
+var ambience = '192.168.23.22:'+srvport;//'http://hello_socket_io_423.dexta.c9.io';
 
 var express = require('express');
 var app = express.createServer();
@@ -15,17 +15,11 @@ app.configure(function(){
     app.set('view options', { pretty: true });
 });
 
-<<<<<<< HEAD
 app.use(express.static(__dirname + '/static'));	
 console.log('Try Static '+ __dirname);
-=======
-app.use(express.static(__dirname + '/static'));
-
-console.log('Try Static'+ __dirname);
->>>>>>> 168f2c25d986afa8feaeccb22ae5b51747bf2213
 
 app.get('/chat/:pa', function (req, res) {
-	res.render('index.jade', {port: srvport });
+	res.render('index.jade', {port: srvport,host: ambience;});
 	});
 
 //check for connection
