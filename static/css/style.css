@@ -10,10 +10,10 @@ body {
 }
 
 h1{
-	width:100%;
+	width:66%;
 	background-color:#141C47;
 	color: #878eb1;
-	padding:10px;
+	padding:5px;
 	font-size: 1em;
 }
 
@@ -22,15 +22,22 @@ h2{
 	color:#EBEBFF;
 }
 
+#gobalChatWindow {
+	height:200px;
+	width:100%;
+	overflow:auto;
+}
+
+
 #main {
-	width:800px;
-	margin: 50px auto;
+	width:400px;
+	margin: 0px auto;
 	text-align: center;
 }
 
 input{
-	padding:10px;
-	margin: 10px 0;
+	padding:5px;
+	margin: 1px 0;
 	font-size:1em;
 	text-align:center;
 	display:block;
@@ -43,21 +50,28 @@ input{
 	width:300px;
 }
 
+#flow {
+	height:230px;
+	overflow:auto;
+}
 
 #chatwindow{
 	margin: auto;
-	width: 800px;
+	width: 850px;
+	height:230px;
 }
 
 #names{
 	float: left;
-	margin-right: 20px;
-	width: 200px;
+	margin-right: 10px;
+	width: 190px;
+	height: 150px;
 	background-color: #fff;
-	padding: 20px;
-	text-align: left;
+	padding: 10px;
+	text-align: right;
 	font-size: 0.8em;
-	background-color: #AABBFF;
+	background-color: #AABFFF;
+	overflow:auto;
 }
 
 #names p{
@@ -65,13 +79,13 @@ input{
 }
 
 #message{
-	width:100%;
+	width:90%;
 	text-align:left;
 }
 
 #messages{
-	background-color: #fff;
-	padding: 20px;
+	background-color: #AABBFF;
+	padding: 5px;
 	text-align: left;
 	font-size: 0.8em;
 	margin-left: 260px;
@@ -90,23 +104,25 @@ ul li{
 }
 
 li.welcome{
-	color: #0e8f2e;
+	color: #003300;
+	background-color:#DDDDFF;
+}
+
+li.joined, li.left{
+	color: #003;
+	font-style: italic;
+	text-align:right;
+	background-color:#AABBFA;
 }
 
 li.left{
-	color: #c8c8c8;
-	font-style: italic;
-}
-
-li.joined{
-	color: #949494;
-	font-style: italic;
+	color: #300;
 }
 
 span.time{
 	display: inline-block;
 	margin-right: 10px;
-	color: #aeaeae;
+	color: #006;
 }
 
 span.user{
@@ -117,21 +133,26 @@ span.user{
 
 
 .color0{
-	color: #6069ad;
+	color: #000333;
+	background-color: #AAAAFF;
 }
 
 .color1{
-	color: #1B2042;
+	color: #000033;
+	background-color: #AAAAFF;
 }
 
 .color2{
-	color: #4956B2;
+	color: #003300;
+	background-color: #AADDFF;
 }
 
 .color3{
-	color: #7a7fa5;
+	color: #330000;
+	background-color: #CCCCFF;
 }
 
 .color4{
-	color: #343D7F;
+	color: #003333;
+	background-color: #AACFFF;
 }

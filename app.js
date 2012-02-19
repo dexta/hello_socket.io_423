@@ -1,6 +1,6 @@
 //setup server
 var srvport = 9090;//process.env.PORT;
-var ambience = 'http://192.168.23.22:'+srvport;//'http://hello_socket_io_423.dexta.c9.io';
+var ambience = 'http://127.0.0.1:'+srvport;//'http://hello_socket_io_423.dexta.c9.io';
 
 var express = require('express');
 var app = express.createServer();
