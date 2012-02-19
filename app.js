@@ -1,5 +1,7 @@
 //setup server
-var srvport = 9090
+
+var srvport = process.env.PORT;
+
 var express = require('express');
 var app = express.createServer();
 var io = require('socket.io').listen(app);
@@ -13,7 +15,8 @@ app.configure(function(){
     app.set('view options', { pretty: true });
 });
 
-app.use(express.static(__dirname + '/static'));	
+app.use(express.static(__dirname + '/static'));
+
 console.log('Try Static'+ __dirname);
 
 app.get('/chat/:pa', function (req, res) {
@@ -65,8 +68,6 @@ io.sockets.on('connection', function (socket) {
 	});	
 	
 });
-
-
 
 function getTime() {
     var dTime = new Date();
