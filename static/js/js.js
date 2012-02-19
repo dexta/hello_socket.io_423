@@ -39,7 +39,7 @@
  }); //document.ready
 
 //Connect to the server
-var socket = io.connect('http://hello_socket_io_423.dexta.c9.io'); 
+var socket = io.connect(host); 
  
  //Listen to the server: Login
 socket.on('login', function (data) {

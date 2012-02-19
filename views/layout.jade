@@ -3,9 +3,10 @@ html(lang="en")
   head
     title Hello World Chat
     link(rel="stylesheet", href="/css/style.css")
-    script(src="http://hello_socket_io_423.dexta.c9.io/socket.io/socket.io.js")
+    script(src="#{host}/socket.io/socket.io.js")
     script(src="/js/jquery.js")
     script(type='text/javascript')
       var srvport = #{port};
+      var host = '#{host}';
     script(src="/js/js.js")
   body!= body
