@@ -14,7 +14,7 @@ app.configure(function(){
 });
 
 app.use(express.static(__dirname + '/static'));	
-console.log('Try Static'+ __dirname);
+console.log('Try Static '+ __dirname);
 
 app.get('/chat/:pa', function (req, res) {
 	res.render('index.jade', {port: srvport });
