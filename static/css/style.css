@@ -22,12 +22,29 @@ h2{
 	color:#EBEBFF;
 }
 
+h3{
+    width:66%;
+    background-color:#141C47;
+    color: #878eb1;
+    font-size: 0.7em;
+    text-align:right;
+    flow:right;
+}
+
 #gobalChatWindow {
+    position:absolute;
+   	bottom:0;
 	height:200px;
 	width:100%;
 	overflow:auto;
+	scrollbar-face-color: #CFCFFF;
+	scrollbar-track-color: #D000DE;
+	scrollbar-arrow-color: #FF0000;
+	scrollbar-highlight-color: #AADDFF;
+	scrollbar-shadow-color: #5D61FF;
+	scrollbar-3dlight-color: #FFB62F;
+	scrollbar-darkshadow-color: #000000;
 }
-
 
 #main {
 	width:400px;
@@ -51,7 +68,9 @@ input{
 }
 
 #flow {
+        margin: 0px 0px 0px 23px;
 	height:230px;
+	width:560px;
 	overflow:auto;
 }
 
@@ -95,12 +114,13 @@ ul{
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+	width:97%;
 }
 
 ul li{
 	margin: 0;
 	padding: 0;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 }
 
 li.welcome{

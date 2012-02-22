@@ -8,6 +8,7 @@ var io = require('socket.io').listen(app);
 app.listen(srvport);
 //create an object to hande and identify clients
 var clients = {};
+var names = {}
 
 app.configure(function(){
     app.set('views','views');
@@ -31,7 +32,8 @@ io.sockets.on('connection', function (socket) {
 		//save usernames
 		clients[socket.id] = {};
 		clients[socket.id]['username'] = data.username;
-		
+		names[data.username] = socket;
+		//sock.emit('message', {color:clients[socket.id]['color'], class:'line', time:getTime(), user:clients[socket.id]['username'], message: "<b>"+data.message+"</b>"});
 		//set a color
 		Object.size = function(obj) {
 		    var size = 0, key;
@@ -56,14 +58,27 @@ io.sockets.on('connection', function (socket) {
 		//send data
 		io.sockets.emit('message', {color:clients[socket.id]['color'], class:'line', time:getTime(), user:clients[socket.id]['username'], message: data.message});
 	});
-	
+	//Listen to the privateChat client: Login
+	socket.on('pmessage', function (data) {
+		if(data.pcusername in names) {
+			//send data only to the one
+			var sockTaget = names[data.pcusername];
+			sockTaget.emit('message', {color:clients[socket.id]['color'], class:'line', time:getTime(), user:clients[socket.id]['username'], message: "<b>"+data.message+"</b>"});
+			}
+		var sockSource = names[clients[socket.id]['username']];
+		if(sockSource) {
+			//send echo to the sender
+			sockSource.emit('message', {color:clients[socket.id]['color'], class:'line', time:getTime(), user:clients[socket.id]['username'], message: "<i>"+data.message+"</i>"});
+		}
+	});
 	//Listen to the client: Disconnect
 	socket.on('disconnect', function () {
-		socket.broadcast.emit('message', {color:clients[socket.id]['color'], class:'left', message:clients[socket.id]['username']  +' has left the chat'});
-		delete clients[socket.id];
-		
-		//update users in chat
-		io.sockets.emit('updateUsers', {users:clients});
+		if(clients[socket.id]) {
+			socket.broadcast.emit('message', {color:clients[socket.id]['color'], class:'left', message:clients[socket.id]['username']  +' has left the chat'});
+			delete clients[socket.id];
+			//update users in chat
+			io.sockets.emit('updateUsers', {users:clients});
+		}
 	});	
 	
 });
