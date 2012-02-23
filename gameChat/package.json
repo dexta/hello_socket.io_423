@@ -1,0 +1,18 @@
+{
+    "author": "Bjoern Liebke <dexta.de@gmail.com> (http://zahlenzerkleinerer.de)",
+    "name": "Game_Chat_engine",
+    "description": "abstract the funtion to have some player action",
+    "version": "0.0.1",
+    "main": "gameChat",
+    "engines": {
+        "node": ">=0.6.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:dexta/hello_socket.io_423.git"
+    },
+    "licenses": [{
+        "type": "GPL",
+        "url": "http://github.com:dexta/hello_socket.io_423/raw/gameTemplate/gameChat/LICENSE"
+    }]
+}
