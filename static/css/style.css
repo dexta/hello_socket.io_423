@@ -37,13 +37,6 @@ h3{
 	height:200px;
 	width:100%;
 	overflow:auto;
-	scrollbar-face-color: #CFCFFF;
-	scrollbar-track-color: #D000DE;
-	scrollbar-arrow-color: #FF0000;
-	scrollbar-highlight-color: #AADDFF;
-	scrollbar-shadow-color: #5D61FF;
-	scrollbar-3dlight-color: #FFB62F;
-	scrollbar-darkshadow-color: #000000;
 }
 
 #main {
