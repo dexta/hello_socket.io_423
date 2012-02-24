@@ -4,11 +4,12 @@ var ambience = 'http://127.0.0.1:'+srvport;//'http://hello_socket_io_423.dexta.c
 
 var express = require('express');
 var app = express.createServer();
-var io = require('socket.io').listen(app);
+var chat = require('./gameChat');
+var Chat = new chat();
+Chat.start(app);
 app.listen(srvport);
 //create an object to hande and identify clients
-var clients = {};
-var names = {}
+
 
 app.configure(function(){
     app.set('views','views');
@@ -23,77 +24,7 @@ app.get('/chat/:pa', function (req, res) {
 	res.render('index.jade', {port: srvport,host: ambience});
 	});
 
-//check for connection
-io.sockets.on('connection', function (socket) {
-
-	//Listen to the client: Login
-	socket.on('login', function (data) {
-	
-		//save usernames
-		clients[socket.id] = {};
-		clients[socket.id]['username'] = data.username;
-		names[data.username] = socket;
-		//sock.emit('message', {color:clients[socket.id]['color'], class:'line', time:getTime(), user:clients[socket.id]['username'], message: "<b>"+data.message+"</b>"});
-		//set a color
-		Object.size = function(obj) {
-		    var size = 0, key;
-		    for (key in obj) {
-		        if (obj.hasOwnProperty(key)) size++;
-		    }
-		    return size;
-		};
-		clients[socket.id]['color'] = Object.size(clients) % 5;
-		
-		//send data
-		socket.emit('login', {status:'ok', username:data.username});
-		socket.broadcast.emit('message', {color:clients[socket.id]['color'], class:'joined', message:clients[socket.id]['username']  +' joined the chat'});
-		
-		//update users in chat
-		io.sockets.emit('updateUsers', {users:clients});
-		
+Chat.afterCheck('tMsg',function(data) {
+	console.log(data.message);
 	});
-	
-	//Listen to the client: Login
-	socket.on('message', function (data) {
-		//send data
-		io.sockets.emit('message', {color:clients[socket.id]['color'], class:'line', time:getTime(), user:clients[socket.id]['username'], message: data.message});
-	});
-	//Listen to the privateChat client: Login
-	socket.on('pmessage', function (data) {
-		if(data.pcusername in names) {
-			//send data only to the one
-			var sockTaget = names[data.pcusername];
-			sockTaget.emit('message', {color:clients[socket.id]['color'], class:'line', time:getTime(), user:clients[socket.id]['username'], message: "<b>"+data.message+"</b>"});
-			}
-		var sockSource = names[clients[socket.id]['username']];
-		if(sockSource) {
-			//send echo to the sender
-			sockSource.emit('message', {color:clients[socket.id]['color'], class:'line', time:getTime(), user:clients[socket.id]['username'], message: "<i>"+data.message+"</i>"});
-		}
-	});
-	//Listen to the client: Disconnect
-	socket.on('disconnect', function () {
-		if(clients[socket.id]) {
-			socket.broadcast.emit('message', {color:clients[socket.id]['color'], class:'left', message:clients[socket.id]['username']  +' has left the chat'});
-			delete clients[socket.id];
-			//update users in chat
-			io.sockets.emit('updateUsers', {users:clients});
-		}
-	});	
-	
-});
-
-function getTime() {
-    var dTime = new Date();
-    var hours = dTime.getHours();
-    var minute = dTime.getMinutes();
-    
-    if(hours < 10) {
-      hours = "0" + hours;
-    }
-    
-    if(minute < 10) {
-      minute = "0" + minute;
-    }
-    return hours + ":" + minute;
-}
+Chat.test();
