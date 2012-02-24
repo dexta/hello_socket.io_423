@@ -4,7 +4,9 @@ var ambience = 'http://127.0.0.1:'+srvport;//'http://hello_socket_io_423.dexta.c
 
 var express = require('express');
 var app = express.createServer();
-var chat = require('./gameChat').server(app);
+var chat = require('./gameChat');
+var Chat = new chat();
+Chat.start(app);
 app.listen(srvport);
 //create an object to hande and identify clients
 
@@ -22,3 +24,7 @@ app.get('/chat/:pa', function (req, res) {
 	res.render('index.jade', {port: srvport,host: ambience});
 	});
 
+Chat.afterCheck('tMsg',function(data) {
+	console.log(data.message);
+	});
+Chat.test();
