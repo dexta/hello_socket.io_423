@@ -27,4 +27,8 @@ app.get('/chat/:pa', function (req, res) {
 Chat.afterCheck('tMsg',function(data) {
 	console.log(data.message);
 	});
-Chat.test();
+Chat.afterCheck('tmsg',function() {
+	console.log('only in function test namespace'+butThat());
+	});
+
+function butThat() { return "localbehind";}

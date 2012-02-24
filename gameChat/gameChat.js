@@ -56,20 +56,7 @@ server.prototype.start = function(listenServer) {
 		
 	});
 
-	function getTime() {
-	    var dTime = new Date();
-	    var hours = dTime.getHours();
-	    var minute = dTime.getMinutes();
-	    
-	    if(hours < 10) {
-	      hours = "0" + hours;
-	    }
-	    
-	    if(minute < 10) {
-	      minute = "0" + minute;
-	    }
-	    return hours + ":" + minute;
-	}
+
 
 	}
 server.prototype.afterCheck = function(msgType,callBack) {
@@ -81,3 +68,18 @@ server.prototype.afterCheck = function(msgType,callBack) {
 module.exports = server;
 
 console.log('Game Chat has started');
+
+function getTime() {
+    var dTime = new Date();
+    var hours = dTime.getHours();
+    var minute = dTime.getMinutes();
+    
+    if(hours < 10) {
+      hours = "0" + hours;
+    }
+    
+    if(minute < 10) {
+      minute = "0" + minute;
+    }
+    return hours + ":" + minute;
+}
